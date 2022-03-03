@@ -1,0 +1,51 @@
+Final Exam - SQL Apex Code 
+ - Stefan Cliff 2019230449
+
+
+1 - SELECT first_name, last_name, salary, bonus FROM employees
+WHERE bonus IS NOT NULL OR salary < 5000 ORDER BY salary DESC;
+
+2 - SELECT first_name, last_name, hire_date FROM employees WHERE hire_date > '04.03.2001';
+
+3 - SELECT * FROM departments WHERE department_id IN (SELECT department_id FROM departments 
+WHERE location_id = (SELECT location_id FROM locations WHERE UPPER(city) LIKE 'OXFORD'));
+
+4 - SELECT MAX(e.salary) FROM employees e , departments d 
+WHERE e.department_id = d.department_id AND d.department_name = 'IT';
+
+5 - SELECT AVG(e.salary) FROM employees e , departments d 
+WHERE bonus IS NOT NULL AND UPPER(d.department_name) LIKE 'IT' OR UPPER (d.department_name) LIKE 'ADMINISTARTION';
+
+6 - UPDATE employees SET salary = salary*3 WHERE hire_date > '25-JAN-1994'; 
+
+7 - UPDATE countries SET country_id = 'RS', country_name = 'Serbia', region_id = '1'; 
+
+8 - UPDATE departments SET department_id = 120, department_name = 'HR', manager_id = 124, location_id = 1800; 
+
+9 - SELECT d.department_id, d.department_name, d.manager_id, d.location_id, l.location_id, l.STREET_ADDRESS, l.city, l.postal_code, l.country_id, co.country_id, co.country_name FROM departments d, locations l, countries co 
+WHERE  d.location_id = l.location_id AND l.country_id = co.country_id;
+
+10 - SELECT d.department_id, e.first_name, e.last_name, jh.start_date, jh.end_date FROM departments d, employees e, job_history jh 
+WHERE d.department_id LIKE '20';
+
+11 - SELECT DISTINCT department_id, FROM employees GROUP BY department_id, manager_id HAVING COUNT(employee_id) >=2;
+
+12 - SELECT first_name, last_name CASE WHEN salary < 300 THEN 'GRADE 1' WHEN salary > 300 AND salary < 400 THEN 'GRADE 2' ELSE 'GRADE 3' END CASE FROM employees;
+
+13 - SELECT e.last_name, d.department_id, l.city, l.state_province FROM employees e, departments d, locations l 
+WHERE UPPER(first_name) LIKE '%S%' AND e.department_id = d.department_id AND d.location_id = l.location_id;
+
+14 - ALTER employees SET salary = salary *0.75 
+WHERE salary > (SELECT AVG(salary) FROM employees) AND department_id = (SELECT department_id FROM employees 
+WHERE UPPER(depratment_name) LIKE 'MARKETING') OR department_id = (SELECT department_id FROM employees 
+WHERE UPPER(depratment_name) LIKE 'ACCOUNTING')
+
+15 - CREATE TABLE Stefan_Cliff ADD COLUMNS 
+my_id Integer PRIMARY KEY, 
+title VARCHAR2 30 UNIQUE, 
+my_content VARCHAR2 20 NOT NULL UNIQUE,
+my_date DATE CONSTRAINT my_date >='01-01-1990';
+
+
+Final Exam - SQL Apex Code 
+ - Stefan Cliff 2019230449

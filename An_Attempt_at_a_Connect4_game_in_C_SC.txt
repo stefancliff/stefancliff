@@ -1,0 +1,321 @@
+#include <stdio.h>
+#include<stdlib.h>
+
+void NewGame();
+void Menu();
+void clrsrc();
+void ListSaved();
+void SaveGame();
+
+char PlayerX[20];
+char PlayerO[20];
+
+void MatrixPrint(char **MatrixP, int Rows, int Columns){
+
+        for(int i=0; i<Rows; i++)
+        {
+           
+            for(int j=0; j<Columns; j++)
+            {
+                printf(" %c ",MatrixP[i][j]);
+                
+            }
+           
+            printf("\n\n");
+        }
+      
+    }
+void SaveGame(char *PX, char *PO, int Moves)
+{
+    FILE *fp = fopen("SavedGames.txt", "a");
+    int ID;
+    char buf[1024];
+    while(fgets(buf, sizeof(buf),fp) != NULL)
+    {
+      ID++;
+    }
+    fprintf(fp,"%d | %s | %s | Moves left: %d |\n",ID,PX,PO,Moves);
+    fclose(fp);
+    printf("\nGame is saved!\n");
+    
+}
+
+void GameOver(char *Player){
+    printf("Player %s wins!",&Player);
+    int choiceMenu;
+        printf("\n1. New Game\n2. Main Menu");
+        printf("\nEnter your choice:");
+        scanf("%d",&choiceMenu);
+        while((choiceMenu<1) || (choiceMenu>2)){
+            printf("You must choose 1 or 2!\n");
+            printf("Enter your choice:\n");
+            scanf("%d",&choiceMenu);
+        }
+        switch(choiceMenu){
+        case 1: NewGame();break;
+        case 2: Menu();break;
+        }
+}
+void CheckVertical(char **Matrix, int Rows, int Columns,char PlayerX, char PlayerO){
+    for(int i=5;i>=Rows-3;i--){
+        for(int j=0;j<Columns;j++){
+                    if((Matrix[i][j]=='X')&&(Matrix[i-1][j]=='X')&&(Matrix[i-2][j]=='X')&&(Matrix[i-3][j]=='X')){
+                            Matrix[i][j]='W';
+                            Matrix[i-1][j]='W';
+                            Matrix[i-2][j]='W';
+                            Matrix[i-3][j]='W';
+                            printf("\n\n");
+                           MatrixPrint(&(*Matrix),Rows,Columns);
+
+                    GameOver(&PlayerX);
+                    }
+                    if((Matrix[i][j]=='O')&&(Matrix[i-1][j]=='O')&&(Matrix[i-2][j]=='O')&&(Matrix[i-3][j]=='O')){
+                            Matrix[i][j]='W';
+                            Matrix[i-1][j]='W';
+                            Matrix[i-2][j]='W';
+                            Matrix[i-3][j]='W';
+                            printf("\n\n");
+                           MatrixPrint(&(*Matrix),Rows,Columns);
+                    GameOver(&PlayerO);
+                    }
+        }
+    }
+}
+
+void CheckHorizontal(char **Matrix, int Rows, int Columns,char PlayerX, char PlayerO){
+    for (int j=0;j<Columns-3;j++){
+        for(int i=5;i>=0;i--){
+                    if((Matrix[i][j]=='X')&&(Matrix[i][j+1]=='X')&&(Matrix[i][j+2]=='X')&&(Matrix[i][j+3]=='X')){
+                            Matrix[i][j]='W';
+                            Matrix[i][j+1]='W';
+                            Matrix[i][j+2]='W';
+                            Matrix[i][j+3]='W';
+                            printf("\n\n");
+                           MatrixPrint(&(*Matrix),Rows,Columns);
+                    GameOver(&PlayerX);
+                    }
+                    if((Matrix[i][j]=='O')&&(Matrix[i][j+1]=='O')&&(Matrix[i][j+2]=='O')&&(Matrix[i][j+3]=='O')){
+                            Matrix[i][j]='W';
+                            Matrix[i][j+1]='W';
+                            Matrix[i][j+2]='W';
+                            Matrix[i][j+3]='W';
+                            printf("\n\n");
+                           MatrixPrint(&(*Matrix),Rows,Columns);
+                    GameOver(&PlayerX);
+                    }
+        }
+    }
+}
+
+void CheckDiagonalASC(char **Matrix, int Rows, int Columns,char PlayerX, char PlayerO){
+    for (int i=5;i>=3;i--){
+        for(int j=0;j<Columns-3;j++){
+                    if((Matrix[i][j]=='X')&&(Matrix[i-1][j+1]=='X')&&(Matrix[i-2][j+2]=='X')&&(Matrix[i-3][j+3]=='X')){
+                            Matrix[i][j]='W';
+                            Matrix[i-1][j+1]='W';
+                            Matrix[i-2][j+2]='W';
+                            Matrix[i-3][j+3]='W';
+                            printf("\n\n");
+                           MatrixPrint(&(*Matrix),Rows,Columns);
+                    GameOver(&PlayerX);
+                    }
+                    if((Matrix[i][j]=='O')&&(Matrix[i-1][j+1]=='O')&&(Matrix[i-2][j+2]=='O')&&(Matrix[i-3][j+3]=='O')){
+                            Matrix[i][j]='W';
+                            Matrix[i-1][j+1]='W';
+                            Matrix[i-2][j+2]='W';
+                            Matrix[i-3][j+3]='W';
+                            printf("\n\n");
+                           MatrixPrint(&(*Matrix),Rows,Columns);
+                    GameOver(&PlayerX);
+                    }
+        }
+    }
+}
+
+void CheckDiagonalDESC(char **Matrix, int Rows, int Columns,char PlayerX, char PlayerO){
+    for (int i=5;i>=3;i--){
+        for(int j=3;j<=6;j++){
+                    if((Matrix[i][j]=='X')&&(Matrix[i-1][j-1]=='X')&&(Matrix[i-2][j-2]=='X')&&(Matrix[i-3][j-3]=='X')){
+                            Matrix[i][j]='W';
+                            Matrix[i-1][j-1]='W';
+                            Matrix[i-2][j-2]='W';
+                            Matrix[i-3][j-3]='W';
+                            printf("\n\n");
+                           MatrixPrint(&(*Matrix),Rows,Columns);
+                    GameOver(&PlayerX);
+                    }
+                    if((Matrix[i][j]=='O')&&(Matrix[i-1][j-1]=='O')&&(Matrix[i-2][j-2]=='O')&&(Matrix[i-3][j-3]=='O')){
+                            Matrix[i][j]='W';
+                            Matrix[i-1][j-1]='W';
+                            Matrix[i-2][j-2]='W';
+                            Matrix[i-3][j-3]='W';
+                            printf("\n\n");
+                           MatrixPrint(&(*Matrix),Rows,Columns);
+                    GameOver(&PlayerX);
+                    }
+        }
+    }
+}
+
+void Check4(char **Matrix, int Rows, int Columns,char *PlayerX,char *PlayerO){
+    CheckVertical(&(*Matrix),Rows,Columns,*PlayerX,*PlayerO);
+    CheckHorizontal(&(*Matrix),Rows,Columns,*PlayerX,*PlayerO);
+    CheckDiagonalASC(&(*Matrix),Rows,Columns,*PlayerX,*PlayerO);
+    CheckDiagonalDESC(&(*Matrix),Rows,Columns,*PlayerX,*PlayerO);
+}
+
+void NewGame(){
+
+    printf("Enter name for player X:\n");
+    scanf("%s",PlayerX);
+    printf("Enter name for player O:\n");
+    scanf("%s",PlayerO);
+    char **Matrix;
+    int Rows=6, Columns=7;
+    Matrix = malloc(Rows*sizeof(int*));
+    for(int i=0; i<Rows; i++)
+    {
+        Matrix[i]=malloc(Columns*sizeof(int));
+        for(int j=0; j<Columns; j++)
+        {
+            Matrix[i][j]='1';
+        }
+    }
+   
+    printf("4 in row\n\n\n");
+    MatrixPrint(&(*Matrix),Rows,Columns);
+    int ChosenColumn;
+    int Player=1;
+    int MaxMoves=1;
+    int Moves=42;
+    do{
+        if(MaxMoves==1){
+            printf("Player %s's move\n",PlayerX);
+        }
+        printf("Enter 0 to save the game!\n");
+        printf("Choose Column: \n");
+        scanf("%d",&ChosenColumn);
+        while(((ChosenColumn<1) && (ChosenColumn!=0)) || (ChosenColumn>7)){
+            printf("Column must be in range 1-7!\n");
+            printf("Choose column:\n");
+            scanf("%d",&ChosenColumn);
+        }
+       
+        int j=ChosenColumn-1;
+        for(int i=5; i>=0; i--)
+        {
+            if(Matrix[i][j]=='1')
+            {
+                if(Player==1){
+                    Matrix[i][j]='X';
+                    Player=2;
+                    printf("Player %s's move\n",PlayerO); 
+                    break;
+                }
+                if(Player==2){
+                Matrix[i][j]='O';
+                Player=1;
+                printf("Player %s's move\n",PlayerX);
+                break;
+                }
+            }
+        }
+        MatrixPrint(&(*Matrix),Rows,Columns);
+        Check4(&(*Matrix),Rows,Columns,PlayerX,PlayerO);
+        
+        if(ChosenColumn==0){
+            SaveGame(PlayerX, PlayerO, Moves);
+        }
+       
+    MaxMoves++;
+    }while(MaxMoves<=42);
+
+    if(MaxMoves>42){
+        int choice;
+        printf("\nTable is filled");
+        printf("\n1. New Game\n2. Main Menu");
+        printf("\nEnter your choice:");
+        scanf("%d",&choice);
+        while((choice<1) || (choice>2)){
+            printf("You must choose 1 or 2!\n");
+            printf("Enter your choice:\n");
+            scanf("%d",&ChosenColumn);
+        }
+
+        switch(choice){
+        case 1: NewGame();break;
+        case 2: Menu();break;
+        }
+    }
+
+    free(Matrix);
+}
+void Menu(){
+
+    void SavedMenu(){
+        int ChoiceSaved;
+        printf("\nLoad saved game\n\n");
+        printf("1. List all saved games\n2. List all saved games for a particular player\n"
+        "3. Show the board of one of the saved games\n4. Load a game\n5. Return to main menu\n");
+        printf("Enter your choice:\n");
+        scanf("%d",&ChoiceSaved);
+        while((ChoiceSaved<1) || (ChoiceSaved>5)){
+            printf("Chosen number must be in range 1-5!\n");
+            printf("Enter your choice:\n");
+            scanf("%d",&ChoiceSaved);
+        }
+
+        switch(ChoiceSaved){
+            case 1: ListSaved(); break;
+            case 2: /*ListSavedPlayer();*/ break;
+            case 3: /*ShowSavedBoard();*/ break;
+            case 4: /*LoadGame();*/ break;
+            case 5: Menu(); break;
+        }
+    }
+  
+    int Choice;
+    printf("\nWELCOME TO CONNECT 4!\n\n\n");
+    printf("1.) Play a new game\n2.) Load already saved game\n3.) Exit the game\n");
+    printf("Enter your choice: \n");
+    scanf("%d",&Choice);
+    while((Choice<1) || (Choice>3)){
+        printf("Chosen number must be in range 1-3!\n");
+        printf("Enter your choice: \n");
+        scanf("%d",&Choice);
+    }
+
+    switch(Choice){
+        case 1: NewGame(); break;
+        case 2: SavedMenu(); break;
+        case 3: exit(0);
+    }
+   
+}
+void ListSaved()
+{
+    clrsrc();
+    FILE *fp;
+    char c;
+        
+    fp = fopen("SavedGames.txt","r");
+    c = fgetc(fp);
+    while (c != EOF)
+    {
+        printf("%c", c);
+        c = fgetc(fp);
+    }
+    fclose(fp);
+    }
+void clrsrc()
+{
+    printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+    printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+    printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+}
+
+int main()
+{
+    Menu();
+    return 0;
+}
