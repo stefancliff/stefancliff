@@ -5,7 +5,7 @@
 
 - I have uploaded a few projects I worked on over the years during my studies at Singidunum, as well as a few private ones. I hope in future to upload more of my work, showing off my journey and the various fields I've dipped my toes into.
 
-<img src="https://github-readme-stats.vercel.app/api/top-langs?username=madushadhanushka&show_icons=true&locale=en&layout=compact&theme=chartreuse-dark" alt="ovi" />
+<img src="https://github-readme-stats.vercel.app/api/top-langs?username=stefancliff&show_icons=true&locale=en&layout=compact&theme=chartreuse-dark" alt="ovi" />
 
 <!---
 stefancliff/stefancliff is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
