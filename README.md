@@ -1,5 +1,5 @@
 - 👋 Hi, I’m @stefancliff
-- 👀 I’m interested in Games Design, Games Programming, Software and Data Engineering 
+- 👀 I’m interested in Games Design, Games Programming and Software Engineering 
 - 🌱 I’m currently learning at Singidunum in their SDE course.
 
 
