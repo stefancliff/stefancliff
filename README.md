@@ -17,8 +17,8 @@
   - Pronouns: He/Him
 </p>
 <br>
-  Here is the ratio of languages I've used in my projects so far
-<br>
+  Here is the ratio of languages I've used in my projects so far:
+<br><br>
 
 
 
