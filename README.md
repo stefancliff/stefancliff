@@ -21,11 +21,12 @@
 <br>
 
 
-<br><img src="https://github-readme-stats.vercel.app/api/top-langs?username=stefancliff&show_icons=true&locale=en&layout=compact&theme=chartreuse-dark" alt="ovi" />
-[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=stefancliff&layout=compact)](https://github.com/anuraghazra/github-readme-stats)
+
+[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=stefancliff&layout=compact&theme=chartreuse-dark)](https://github.com/anuraghazra/github-readme-stats)
 
 
 <!---
+<br><img src="https://github-readme-stats.vercel.app/api/top-langs?username=stefancliff&show_icons=true&locale=en&layout=compact&theme=chartreuse-dark" alt="ovi" />
 stefancliff/stefancliff is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 You can click the Preview link to take a look at your changes.
 --->
