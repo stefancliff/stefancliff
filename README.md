@@ -5,7 +5,7 @@
   <br>
   👋 Hi, I’m @stefancliff.<br>
   👀 I’m interested in Games Design, Games Programming and Software Engineering.<br>
-  🌱 I’m currently a fourth year student at Singidunum University, the course is SDE (Software and Data Engineering) which is all done in English.<br>
+  🌱 I have a bachelor's degree in Software and Data Engineering from Singidunum University, all of which was done in English.<br>
 </p>
 <br>
 <p>
