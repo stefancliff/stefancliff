@@ -11,7 +11,7 @@
 <p>
   I have uploaded a few projects I worked on over the years during my studies at Singidunum, as well as a few private ones. I hope in future to upload more of my work, showing off my journey and the various fields I've dipped my toes into.
 
-  - My top languages are: C#, Java, C++, C
+  - My top languages are: C#, Java, C++
   - But I am comfortable with: JavaScript, TypeScript, HTML/CSS, Python 
   - Currently following some courses on Unity/Game Development and solo studies/practice in other fields.
   - Pronouns: He/Him
