@@ -5,11 +5,11 @@
   <br>
   👋 Hi, I’m @stefancliff.<br>
   👀 I’m interested in Games Design, Games Programming and Software Engineering.<br>
-  🌱 I have a bachelor's degree in Software and Data Engineering from Singidunum University, all of which was done in English.<br>
+  🌱 I have a bachelor's degree in Software and Data Engineering.<br>
 </p>
 <br>
 <p>
-  I have uploaded a few projects I worked on over the years during my studies at Singidunum, as well as a few private ones. I hope in future to upload more of my work, showing off my journey and the various fields I've dipped my toes into.
+  I have uploaded a few projects I worked on over the years during my studies, as well as a few private ones. I hope in future to upload more of my work, showing off my journey and the various fields I've dipped my toes into.
 
   - My top languages are: C#, Java, C++
   - But I am comfortable with: JavaScript, TypeScript, HTML/CSS, Python 
