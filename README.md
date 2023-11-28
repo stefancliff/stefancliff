@@ -7,7 +7,9 @@
   👋 Hi, I’m @stefancliff.<br>
   👀 I’m interested in Games Design, Games Programming and Software Engineering.<br>
   🌱 I have a bachelor's degree in Software and Data Engineering.<br>
+  
   I am currently following some courses on Udemy to do with Game Development, already finished the Complete 2D Game Developer course and I am in the process of completing the 3D Game Developer Course.
+  All the games I'll be uploading here will have a direct link to their own itch.io page, but you can also see all my work right here: https://stefancliff.itch.io 
 </p>
 <br>
 <h2> The point of this page</h2>
